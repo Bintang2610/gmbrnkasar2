@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UploadController;
+
+Route::get('/upload', [UploadController::class, 'showForm']);
+Route::post('/upload', [UploadController::class, 'uploadImage'])->name('upload.image');
 
 Route::get('/', function () {
     return view('start');
@@ -25,4 +29,16 @@ Route::get('/store-reguler', function () {
 });
 Route::get('/store-mitra', function () {
     return view('storemit');
+});
+Route::get('/list-employee', function () {
+    return view('employee');
+});
+Route::get('/profil-employee', function () {
+    return view('employeebio');
+});
+Route::get('/edit-employee', function () {
+    return view('editemployee');
+});
+Route::get('/add-employee', function () {
+    return view('addemployee');
 });
